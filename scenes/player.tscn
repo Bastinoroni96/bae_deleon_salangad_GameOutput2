@@ -94,7 +94,7 @@ position = Vector2(-2, -37)
 shape = SubResource("RectangleShape2D_h18an")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -209)
+position = Vector2(0, -93)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
