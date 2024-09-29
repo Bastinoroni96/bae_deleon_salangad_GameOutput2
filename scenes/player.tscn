@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d4aawan8gdiqu"]
+[gd_scene load_steps=10 format=3 uid="uid://d4aawan8gdiqu"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_w70oe"]
-[ext_resource type="Texture2D" uid="uid://qh27fktjy2jn" path="res://assets/Bob-Sheet.png" id="2_okr7p"]
+[ext_resource type="Texture2D" uid="uid://dsuoi451w0nds" path="res://assets/Bob-Sheet.png" id="2_okr7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h18an"]
 size = Vector2(46, 74)
@@ -71,9 +71,26 @@ tracks/0/keys = {
 "values": [5, 6, 7, 8, 9, 10, 11, 12, 13]
 }
 
+[sub_resource type="Animation" id="Animation_1iqhl"]
+resource_name = "die"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [50, 51, 52, 53, 55, 54]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0urvy"]
 _data = {
 "RESET": SubResource("Animation_ltg0e"),
+"die": SubResource("Animation_1iqhl"),
 "idle": SubResource("Animation_1rxrd"),
 "jump": SubResource("Animation_kvwdw"),
 "run": SubResource("Animation_0ihxc")
