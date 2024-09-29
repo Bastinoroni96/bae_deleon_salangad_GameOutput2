@@ -1,6 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyoijabfpvpw"]
+[gd_scene load_steps=10 format=3 uid="uid://cyoijabfpvpw"]
 
 [ext_resource type="PackedScene" uid="uid://d4aawan8gdiqu" path="res://scenes/player.tscn" id="1_sltry"]
+[ext_resource type="Texture2D" uid="uid://iyen7rmpgub1" path="res://assets/background/Hills Layer 01.png" id="2_r7wiu"]
+[ext_resource type="Texture2D" uid="uid://neimc4txn7dq" path="res://assets/background/Hills Layer 02.png" id="3_mg0ah"]
+[ext_resource type="Texture2D" uid="uid://j20dhxeivrmp" path="res://assets/background/Hills Layer 03.png" id="3_oo6ku"]
+[ext_resource type="Texture2D" uid="uid://cuigfyjvbvnxm" path="res://assets/background/Hills Layer 04.png" id="4_an5xf"]
+[ext_resource type="Texture2D" uid="uid://by1l5r4cs1xjd" path="res://assets/background/Hills Layer 05.png" id="5_lhawt"]
+[ext_resource type="PackedScene" uid="uid://cwl0b1eijouma" path="res://scenes/spike.tscn" id="7_75cot"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_l1ej3"]
 size = Vector2(1000, 100)
@@ -11,10 +17,64 @@ size = Vector2(1000, 101)
 [node name="World" type="Node2D"]
 position = Vector2(576, 549)
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(3072, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+z_index = -9
+position = Vector2(610, 50)
+scale = Vector2(6, 6)
+texture = ExtResource("3_mg0ah")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(3072, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+z_index = -9
+position = Vector2(610, 50)
+scale = Vector2(6, 6)
+texture = ExtResource("3_oo6ku")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(3072, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+z_index = -9
+position = Vector2(610, 50)
+scale = Vector2(6, 6)
+texture = ExtResource("4_an5xf")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(3072, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+z_index = -9
+position = Vector2(610, 50)
+scale = Vector2(6, 6)
+texture = ExtResource("5_lhawt")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-2, -2)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(3072, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -10
+position = Vector2(610, 50)
+scale = Vector2(6, 6)
+texture = ExtResource("2_r7wiu")
+
 [node name="Player" parent="." instance=ExtResource("1_sltry")]
-position = Vector2(3, -373)
+position = Vector2(-61, 24)
 
 [node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(2164, 268)
+scale = Vector2(5.455, 0.435)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
 modulate = Color(0.13, 0.13, 0.13, 1)
@@ -24,13 +84,87 @@ mesh = SubResource("QuadMesh_l1ej3")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_hr8ya")
 
+[node name="oneWayPlatform" type="StaticBody2D" parent="."]
+position = Vector2(821, 135)
+scale = Vector2(1, 0.435)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="oneWayPlatform"]
+modulate = Color(0.13, 0.13, 0.13, 1)
+mesh = SubResource("QuadMesh_l1ej3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="oneWayPlatform"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hr8ya")
+one_way_collision = true
+
 [node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(2765, -926)
+scale = Vector2(6.67, 1)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
 modulate = Color(0.13, 0.13, 0.13, 1)
-position = Vector2(1023, -138)
 mesh = SubResource("QuadMesh_l1ej3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
-position = Vector2(1023, -139)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_hr8ya")
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2(-522, -310)
+rotation = 1.5708
+scale = Vector2(1.38, 1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform3"]
+modulate = Color(0.13, 0.13, 0.13, 1)
+mesh = SubResource("QuadMesh_l1ej3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hr8ya")
+
+[node name="Spike" parent="." instance=ExtResource("7_75cot")]
+position = Vector2(1294, 247)
+
+[node name="Spike2" parent="." instance=ExtResource("7_75cot")]
+position = Vector2(354, 114)
+
+[node name="Spike4" parent="." instance=ExtResource("7_75cot")]
+position = Vector2(1283, 113)
+
+[node name="oneWayPlatform2" type="StaticBody2D" parent="."]
+position = Vector2(820, 0)
+scale = Vector2(1, 0.435)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="oneWayPlatform2"]
+modulate = Color(0.13, 0.13, 0.13, 1)
+mesh = SubResource("QuadMesh_l1ej3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="oneWayPlatform2"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hr8ya")
+one_way_collision = true
+
+[node name="Spike3" parent="." instance=ExtResource("7_75cot")]
+position = Vector2(353, -21)
+
+[node name="Spike5" parent="." instance=ExtResource("7_75cot")]
+position = Vector2(1282, -22)
+
+[node name="oneWayPlatform3" type="StaticBody2D" parent="."]
+position = Vector2(820, -141)
+scale = Vector2(1, 0.435)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="oneWayPlatform3"]
+modulate = Color(0.13, 0.13, 0.13, 1)
+mesh = SubResource("QuadMesh_l1ej3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="oneWayPlatform3"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hr8ya")
+one_way_collision = true
+
+[node name="Spike6" parent="." instance=ExtResource("7_75cot")]
+position = Vector2(353, -162)
+
+[node name="Spike7" parent="." instance=ExtResource("7_75cot")]
+position = Vector2(1282, -163)

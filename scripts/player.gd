@@ -25,7 +25,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 		
-	print(velocity)
+	#print(velocity)
 	
 	update_animations(horizontal_direction)
 
