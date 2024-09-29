@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://cyoijabfpvpw"]
 
 [ext_resource type="PackedScene" uid="uid://d4aawan8gdiqu" path="res://scenes/player.tscn" id="1_sltry"]
-[ext_resource type="Texture2D" uid="uid://bp26nd4ihlfu7" path="res://assets/background/Hills Layer 01.png" id="2_r7wiu"]
-[ext_resource type="Texture2D" uid="uid://m6dd4sijtmiw" path="res://assets/background/Hills Layer 02.png" id="3_mg0ah"]
-[ext_resource type="Texture2D" uid="uid://bm7bpvg3cogeg" path="res://assets/background/Hills Layer 03.png" id="3_oo6ku"]
-[ext_resource type="Texture2D" uid="uid://8trdl46cvui7" path="res://assets/background/Hills Layer 04.png" id="4_an5xf"]
-[ext_resource type="Texture2D" uid="uid://c2atheebu31rk" path="res://assets/background/Hills Layer 05.png" id="5_lhawt"]
+[ext_resource type="Texture2D" uid="uid://iyen7rmpgub1" path="res://assets/background/Hills Layer 01.png" id="2_r7wiu"]
+[ext_resource type="Texture2D" uid="uid://neimc4txn7dq" path="res://assets/background/Hills Layer 02.png" id="3_mg0ah"]
+[ext_resource type="Texture2D" uid="uid://j20dhxeivrmp" path="res://assets/background/Hills Layer 03.png" id="3_oo6ku"]
+[ext_resource type="Texture2D" uid="uid://cuigfyjvbvnxm" path="res://assets/background/Hills Layer 04.png" id="4_an5xf"]
+[ext_resource type="Texture2D" uid="uid://by1l5r4cs1xjd" path="res://assets/background/Hills Layer 05.png" id="5_lhawt"]
 [ext_resource type="PackedScene" uid="uid://yxlr10vpkpo8" path="res://scenes/spike.tscn" id="7_75cot"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_l1ej3"]
@@ -84,6 +84,42 @@ mesh = SubResource("QuadMesh_l1ej3")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_hr8ya")
 
+[node name="Platform4" type="StaticBody2D" parent="."]
+position = Vector2(813, -307)
+scale = Vector2(1, 0.435)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform4"]
+modulate = Color(0.13, 0.13, 0.13, 1)
+mesh = SubResource("QuadMesh_l1ej3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hr8ya")
+
+[node name="Platform6" type="StaticBody2D" parent="."]
+position = Vector2(1924, 180)
+scale = Vector2(0.1, 1.335)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform6"]
+modulate = Color(0.13, 0.13, 0.13, 1)
+mesh = SubResource("QuadMesh_l1ej3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform6"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hr8ya")
+
+[node name="Platform7" type="StaticBody2D" parent="."]
+position = Vector2(2116, 158)
+scale = Vector2(0.1, 1.785)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform7"]
+modulate = Color(0.13, 0.13, 0.13, 1)
+mesh = SubResource("QuadMesh_l1ej3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform7"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hr8ya")
+
 [node name="oneWayPlatform" type="StaticBody2D" parent="."]
 position = Vector2(821, 135)
 scale = Vector2(1, 0.435)
@@ -122,6 +158,19 @@ mesh = SubResource("QuadMesh_l1ej3")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_hr8ya")
 
+[node name="Platform5" type="StaticBody2D" parent="."]
+position = Vector2(4660, -310)
+rotation = 1.5708
+scale = Vector2(1.38, 1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform5"]
+modulate = Color(0.13, 0.13, 0.13, 1)
+mesh = SubResource("QuadMesh_l1ej3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hr8ya")
+
 [node name="Spike" parent="." instance=ExtResource("7_75cot")]
 position = Vector2(1294, 247)
 
@@ -150,6 +199,9 @@ position = Vector2(353, -21)
 [node name="Spike5" parent="." instance=ExtResource("7_75cot")]
 position = Vector2(1282, -22)
 
+[node name="Spike7" parent="." instance=ExtResource("7_75cot")]
+position = Vector2(2016, 245)
+
 [node name="oneWayPlatform3" type="StaticBody2D" parent="."]
 position = Vector2(820, -141)
 scale = Vector2(1, 0.435)
@@ -165,6 +217,3 @@ one_way_collision = true
 
 [node name="Spike6" parent="." instance=ExtResource("7_75cot")]
 position = Vector2(353, -162)
-
-[node name="Spike7" parent="." instance=ExtResource("7_75cot")]
-position = Vector2(1282, -163)
